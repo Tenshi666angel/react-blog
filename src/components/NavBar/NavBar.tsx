@@ -17,8 +17,11 @@ export const NavBar: FC = () => {
         <div className={styles.links}>
             <NavLink to={routes.feed} className={getLinkClassName}>Главная</NavLink>
             <NavLink to={routes.profile} className={getLinkClassName}>Профиль</NavLink>
+            <div className={styles.logout}>
+                <NavLink to={routes.login} className={styles.link}>Выйти</NavLink>
+            </div>
             <div className={styles.avatar}>
-            <img src={user?.avatar}  alt="" /> 
+                <img src={user?.avatar}  alt="" /> 
             </div>
         </div>
     </nav>

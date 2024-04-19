@@ -25,6 +25,7 @@ export const ChangeAvatar: FC = () => {
     }
 
     return <div className={styles.changeAvatar}>
+        <h1>Сменить аватар</h1>
         <div className={styles.avatar}>
             { user?.avatar 
                 ? <img src={user.avatar} alt="" />
