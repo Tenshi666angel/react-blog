@@ -1,0 +1,55 @@
+.wrapper {
+    background-image: url('../../assets/back.jpg');
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    border: 1px solid aliceblue;
+    padding: 60px 60px;
+    border-radius: 10px;
+    background-color: black;
+}
+
+.avatar {
+    align-self: center;
+}
+
+.avatar svg {
+    color: aliceblue;
+}
+
+.form h1 {
+    color: aliceblue;
+    align-self: center;
+}
+
+.form {
+    display: flex;
+    flex-flow: column;
+}
+
+.form span {
+    color: aliceblue;
+    margin-top: 5px;
+    align-self: center;
+}
+
+.log {
+    color: aliceblue;
+    margin-top: 10px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.logLink {
+    text-decoration: none;
+    color: gold;
+}

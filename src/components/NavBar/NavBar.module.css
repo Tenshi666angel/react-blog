@@ -1,0 +1,38 @@
+.nav {
+    height: 60px;
+    background-color: black;
+    display: flex;
+    flex-flow: row;
+    position: relative;
+}
+
+.links {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+    color: aliceblue;
+    margin-left: 10px;
+    font-size: large;
+}
+
+.activeLink {
+    color: gold;
+}
+
+.avatar {
+    width: 55px;
+    height: 55px;
+    overflow: hidden;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+}
+
+.avatar img {
+    width: 55px;
+    height: auto;
+}

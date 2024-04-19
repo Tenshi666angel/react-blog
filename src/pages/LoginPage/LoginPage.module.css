@@ -1,0 +1,60 @@
+.wrapper {
+    background-image: url('../../assets/back.jpg');
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    border: 1px solid aliceblue;
+    padding: 60px 60px;
+    border-radius: 10px;
+    background-color: black;
+}
+
+.reg {
+    margin-top: 10px;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+
+.reg span {
+    color: aliceblue;
+    margin-right: 10px;
+}
+
+.regLink {
+    text-decoration: none;
+    color: gold;
+}
+
+.form {
+    display: flex;
+    flex-flow: column;
+}
+
+.form span {
+    color: aliceblue;
+    margin-top: 5px;
+    max-width: 200px;
+    text-align: center;
+}
+
+.form h1 {
+    align-self: center;
+    color: aliceblue;
+}
+
+.avatar {
+    align-self: center;
+}
+
+.avatar svg {
+    color: aliceblue;
+}

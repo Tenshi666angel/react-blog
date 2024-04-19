@@ -1,0 +1,39 @@
+.changeAvatar {
+    border: 1px solid black;
+    display: flex;
+    width: 15vw;
+    padding: 10px 10px;
+    border-radius: 20px;
+    height: 40vh;
+    flex-flow: column;
+    text-align: center;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    align-self: center;
+    border-radius: 50%;
+}
+
+.avatar img {
+    width: 120px;
+    height: auto;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.input {
+    margin-top: 30px;
+}
+
+.upload {
+    text-align: center;
+    border: 1px solid black;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+}

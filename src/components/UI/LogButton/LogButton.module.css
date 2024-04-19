@@ -1,0 +1,14 @@
+.button {
+    background: transparent;
+    padding: 5px 15px;
+    width: 60%;
+    align-self: center;
+    border: 1px solid aliceblue;
+    border-radius: 5px;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}

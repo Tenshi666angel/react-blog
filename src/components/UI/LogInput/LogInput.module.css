@@ -1,0 +1,13 @@
+.input {
+    background: transparent;
+    border: 1px solid aliceblue;
+    padding: 10px 15px;
+    color: aliceblue;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.input:focus {
+    outline: none;
+    transform: scale(1.1);
+}
