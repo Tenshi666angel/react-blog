@@ -5,11 +5,7 @@ export const useField = () => {
 
     const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setValue(e.target.value);
-    }
+    } 
 
-    const result: [string, 
-        (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) 
-            => void] = [value, onChange]
-
-    return result
+    return [value, onChange] as const
 }
