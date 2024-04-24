@@ -7,15 +7,13 @@ import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { Link, useNavigate } from "react-router-dom";
 import { routes } from "../../utils/routes";
 import { userSlice } from '../../redux/reducers/userSlice';
-
-type UserFormData = {
-    username: string
-    password: string
-}
+import { useField } from "../../hooks/fields";
 
 export const LoginPage: FC = () => {
 
-    const [userData, setUserData] = useState<UserFormData>({ username: '', password: '' });
+    const [username, usernameChange] = useField();
+    const [password, passwordChange] = useField();
+
     const [invalidData, setInvalidData] = useState<boolean>(false);
     const [emptyFields, setEmptyFields] = useState<boolean>(false);
 
@@ -33,14 +31,14 @@ export const LoginPage: FC = () => {
     const formSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if(userData.username === '' || userData.password === '') {
+        if(username === '' || password === '') {
             setInvalidData(false);
             setEmptyFields(true);
             return;
         }
 
-        const user = users.find(u => u.name === userData.username &&
-                                     u.password === userData.password);
+        const user = users.find(u => u.name === username &&
+                                     u.password === password);
 
         if(!user) {
             setEmptyFields(false);
@@ -52,14 +50,6 @@ export const LoginPage: FC = () => {
         navigate(routes.feed);
     }
 
-    const usernameChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setUserData({ ...userData, username: e.target.value });
-    }
-
-    const passwordChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setUserData({ ...userData, password: e.target.value });
-    }
-
     return <div className={styles.wrapper}>
         <div className={styles.container}>
             <div className={styles.avatar}>
@@ -67,8 +57,8 @@ export const LoginPage: FC = () => {
             </div>
             <form onSubmit={formSubmit} className={styles.form}>
                 <h1>Log in</h1>
-                <LogInput onChange={usernameChange} value={userData.username} placeholder="username" />
-                <LogInput onChange={passwordChange} value={userData.password} type="password" placeholder="password" />
+                <LogInput onChange={usernameChange} value={username} placeholder="username" />
+                <LogInput onChange={passwordChange} value={password} type="password" placeholder="password" />
                 <LogButton>Log in</LogButton>
                 { invalidData && <span>Неверное имя пользователя или пароль</span> }
                 { emptyFields && <span>Заполните все поля</span> }

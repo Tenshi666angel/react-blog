@@ -14,12 +14,11 @@ export const ChangeAvatar: FC = () => {
     const user = users.find(u => u.isAuth);
 
     const avatarInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log('jhj');
         
         if(!user) return;
         if(!e.target.files) return;
 
-        dispatch(loadAvatar({user, avatar: URL.createObjectURL(e.target.files[0])}));
+        dispatch(loadAvatar({ user, avatar: URL.createObjectURL(e.target.files[0]) }));
 
         console.log(user.avatar);
     }

@@ -8,18 +8,13 @@ import { routes } from "../../utils/routes";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { userSlice } from "../../redux/reducers/userSlice";
 import uuid from "react-uuid";
-
-type RegisterFormData = {
-    username: string;
-    password: string;
-    passwordConfirm: string;
-}
+import { useField } from "../../hooks/fields";
 
 export const RegisterPage: FC = () => {
 
-    const [registerData, setRegisterData] = useState<RegisterFormData>({
-        username: '', password: '', passwordConfirm: ''
-    });
+    const [username, usernameChange] = useField();
+    const [password, passwordChange] = useField();
+    const [passwordConfirm, passwordConfirmChange] = useField();
 
     const [emptyFields, setEmptyFields] = useState<boolean>(false);
     const [noMatchPasswords, setNoMatchPasswords] = useState<boolean>(false);
@@ -38,16 +33,16 @@ export const RegisterPage: FC = () => {
     const formSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const user = users.find(u => u.name === registerData.username);
+        const user = users.find(u => u.name === username);
 
-        if(registerData.username === '' || registerData.password === '' || registerData.passwordConfirm === '') {
+        if(username === '' || password === '' || passwordConfirm === '') {
             setBadUsername(false);
             setNoMatchPasswords(false);
             setEmptyFields(true);
             return;
         }
 
-        if(registerData.password !== registerData.passwordConfirm) {
+        if(password !== passwordConfirm) {
             setBadUsername(false);
             setEmptyFields(false);
             setNoMatchPasswords(true);
@@ -63,24 +58,12 @@ export const RegisterPage: FC = () => {
 
         dispatch(createUser({
             id: uuid(),
-            name: registerData.username,
-            password: registerData.password,
+            name: username,
+            password: password,
             isAuth: true
         }));
 
         navigate(routes.feed);
-    }
-
-    const usernameChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setRegisterData({ ...registerData, username: e.target.value });
-    }
-
-    const passwordChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setRegisterData({ ...registerData, password: e.target.value });
-    }
-
-    const passwordConfirmChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setRegisterData({ ...registerData, passwordConfirm: e.target.value });
     }
     
     return <div className={styles.wrapper}>
@@ -90,9 +73,9 @@ export const RegisterPage: FC = () => {
             </div>
             <form onSubmit={formSubmit} className={styles.form}>
                 <h1>Register</h1>
-                <LogInput onChange={usernameChange} value={registerData.username} placeholder="username" />
-                <LogInput onChange={passwordChange} value={registerData.password} placeholder="password" type="password" />
-                <LogInput onChange={passwordConfirmChange} value={registerData.passwordConfirm} placeholder="password confirm" type="password" />
+                <LogInput onChange={usernameChange} value={username} placeholder="username" />
+                <LogInput onChange={passwordChange} value={password} placeholder="password" type="password" />
+                <LogInput onChange={passwordConfirmChange} value={passwordConfirm} placeholder="password confirm" type="password" />
                 <LogButton>Register</LogButton>
                 { emptyFields && <span>Заполните все поля</span> }
                 { noMatchPasswords && <span>Пароли не совпадают</span> }

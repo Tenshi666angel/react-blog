@@ -7,7 +7,7 @@ import { useAppSelector } from "../../hooks/redux";
 export const NavBar: FC = () => {
 
     const getLinkClassName = ({ isActive }: { isActive: boolean }) => 
-        isActive ? `${styles.activeLink} ${styles.link}` : styles.link
+        isActive ? `${styles.activeLink} ${styles.link}` : styles.link;
 
     const { users } = useAppSelector(state => state.userReducer);
 

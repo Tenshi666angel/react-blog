@@ -3,6 +3,7 @@ import { useAppSelector } from "../../hooks/redux";
 import { Navigate } from "react-router-dom";
 import { routes } from "../../utils/routes";
 import { NavBar } from "../../components/NavBar/NavBar";
+import { NewPostForm } from "../../components/NewPostForm/NewPostForm";
 
 export const Feed: FC = () => {
 
@@ -13,5 +14,6 @@ export const Feed: FC = () => {
     return !user ? <Navigate to={routes.login} /> : <div>
         <NavBar />
         <h1>Welcome, { user.name }!!!</h1>
+        <NewPostForm />
     </div>
 }

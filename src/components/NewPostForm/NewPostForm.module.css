@@ -1,0 +1,21 @@
+.form {
+    display: flex;
+    flex-flow: column;
+    width: 300px;
+}
+
+.newPostInput, .newPostArea {
+    display: flex;
+    flex-flow: row;
+    width: 300px;
+    position: relative;
+}
+
+.inCount, .areaCount {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 15px;
+    color: gray;
+    pointer-events: none;
+}

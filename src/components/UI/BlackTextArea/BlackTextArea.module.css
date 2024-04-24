@@ -1,0 +1,12 @@
+.area {
+    border: 1px solid black;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    resize: none;
+    height: 90px;
+}
+
+.area:focus {
+    outline: none;
+}
